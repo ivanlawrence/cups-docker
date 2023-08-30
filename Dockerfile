@@ -33,8 +33,8 @@ RUN apt-get update -qq  && apt-get upgrade -qqy \
     && rm -rf /var/lib/apt/lists/*
 RUN wget -T 10 -nd --no-cache https://download.brother.com/pub/com/linux/linux/packages/hl3180cdwlpr-1.1.3-0.i386.deb
 RUN wget -T 10 -nd --no-cache https://download.brother.com/pub/com/linux/linux/packages/hl3180cdwcupswrapper-1.1.4-0.i386.deb
-RUN dpkg -i --force-all hl3180cdwlpr-1.1.3-0a.i386.deb
-RUN dpkg -i --force-all hl3180cdwcupswrapper-1.1.4-0a.i386.deb
+RUN dpkg -i --force-all hl3180cdwlpr-1.1.3-0a.i386.deb || :
+RUN dpkg -i --force-all hl3180cdwcupswrapper-1.1.4-0a.i386.deb || :
 
 EXPOSE 631
 
