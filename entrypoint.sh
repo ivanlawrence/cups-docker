@@ -1,5 +1,11 @@
 #!/bin/bash -ex
 
+# install the drivers for the printer
+/usr/bin/wget -T 10 -nd --no-cache https://download.brother.com/pub/com/linux/linux/packages/hl3180cdwlpr-1.1.3-0.i386.deb
+/usr/bin/wget -T 10 -nd --no-cache https://download.brother.com/pub/com/linux/linux/packages/hl3180cdwcupswrapper-1.1.4-0.i386.deb
+/usr/bin/dpkg -i --force-all hl3180cdwlpr-1.1.3-0a.i386.deb
+/usr/bin/dpkg -i --force-all hl3180cdwcupswrapper-1.1.4-0a.i386.deb
+
 if [ $(grep -ci $CUPSADMIN /etc/shadow) -eq 0 ]; then
     useradd -r -G lpadmin -M $CUPSADMIN
 
